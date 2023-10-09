@@ -45,7 +45,7 @@ FunOnWord=React.memo(FunOnWord);  //prevents unnecessary re-renders...re-renders
 
 function Timer(props)
 {
-  const {correctWords,startCounting,updateUserInput,updateStartCounting,updateinputDisabled}=props;
+  const {correctWords,startCounting,setUserInput,setStartCounting,setInputDisabled}=props;
   const [timeElapsed, setTimeElapsed]=useState(0);
 
   useEffect(()=>{
@@ -57,9 +57,9 @@ function Timer(props)
         setTimeElapsed((timeElapsed)=>
         {
           if (timeElapsed >= 60) {
-            updateUserInput();
-            updateStartCounting();
-            updateinputDisabled();
+            setUserInput("Time is Over....");
+            setStartCounting(false);
+            setInputDisabled(true);
             return 60;   // Stop the timer when timeElapsed is 61 seconds
           }
           return timeElapsed+1});  
@@ -126,16 +126,7 @@ function App() {
   }
 
   
-  // only called when time is over
-  const updateUserInput = () => {
-    setUserInput("Time is Over....");
-  };
-  const updateStartCounting = () => {
-    setStartCounting(false);
-  };
-  const updateinputDisabled=()=>{
-    setInputDisabled(true);
-  };
+  
   
   return(
     <div className="main">
@@ -146,7 +137,7 @@ function App() {
       Boolean method returns true for "truthy" values and false for null, undefined, 0, an empty string "", or false values.
       correctWordArray.filter(Boolean) results new array that contains only the "truthy" elements from the original correctWordArray
       .length retrieves the length of this filtered array  */}
-      <Timer startCounting={startCounting} correctWords={correctWordArray.filter(Boolean).length} updateUserInput={updateUserInput} updateStartCounting={updateStartCounting} updateinputDisabled={updateinputDisabled}/>       
+      <Timer startCounting={startCounting} correctWords={correctWordArray.filter(Boolean).length} setUserInput={setUserInput} setStartCounting={setStartCounting} setInputDisabled={setInputDisabled}/>       
       
       <p>{words.map((word,index)=>{
           return <FunOnWord text={word} active={index===activeWordIndex} correct={correctWordArray[index]}/>
