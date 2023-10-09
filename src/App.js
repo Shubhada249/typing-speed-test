@@ -2,7 +2,9 @@ import React,{useState,useEffect} from 'react';
 import './App.css';
 
 /*The .split(' ') method is called on the string. This method splits the string into an array of substrings 
-wherever a space is encountered. Each substring becomes an element in the resulting array. */
+wherever a space is encountered. Each substring becomes an element in the resulting array. 
+Math.random() generates a random number between 0 (inclusive) and 1 (exclusive).
+.sort() uses comparison fun....if comparison fun returns (1 elements sorted in asc & -1 elements sorted in desc)*/
 const words= `Board, finish, Burn, Conquer, inflate, Vomit, Feel, Crashed, Stretch, dare, Miss, redo, 
 Sever, saponify, Consign, word, Dry, Reuse, Wear, optimize, Orde, Pollute, Incise, ill-treat, Pacify, astonish, 
 decorate, Crashes, Partake, Bury, report, Diminish, Dress, Sail, Mean, Understand, infect, Rule, Distribute, 
@@ -53,7 +55,6 @@ function Timer(props)
     if(startCounting)
     {
       id=setInterval(()=>{ //setInterval will be called every second=1000milliseconds
-        //do something
         setTimeElapsed((timeElapsed)=>
         {
           if (timeElapsed >= 60) {
@@ -99,17 +100,12 @@ function App() {
   const [startCounting, setStartCounting] =useState(false);
   const [inputDisabled, setInputDisabled] = useState(false);
 
-  // useEffect(()=>{
-  //   words.sort(()=>Math.random()>0.5?1:-1);
-  // },[]) Doubt
-
   function processInput(value)/* as you enter one more character onchange event occurs and this function is called*/
   {
     setStartCounting(true); //different
     
     if(value.endsWith(" "))
     {
-      
       setCorrectWordArray(data=>{
         const word=value.trim(); //remove whitespace characters (spaces, tabs, and newlines) from both the beginning and end of a string
         const newResult=[...data];
