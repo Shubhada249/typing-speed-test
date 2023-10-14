@@ -8,5 +8,5 @@
 
 ![](https://github.com/Shubhada249/typing-speed-test/blob/master/screen-capture.gif)
 
-<img width="596" alt="Starting_SS" src="https://github.com/Shubhada249/typing-speed-test/assets/84717400/674622b8-dad6-47b0-bebb-9450626800c5"><br>
+<img width="596" alt="Starting_SS" src="https://github.com/Shubhada249/typing-speed-test/assets/84717400/674622b8-dad6-47b0-bebb-9450626800c5"><br><br>
 <img width="596" alt="Ending_SS" src="https://github.com/Shubhada249/typing-speed-test/assets/84717400/7e13bc85-b363-49ff-afdc-5a6ce108deb3">
